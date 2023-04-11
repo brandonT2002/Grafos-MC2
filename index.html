@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ================================= CODEMIRROR =========================== -->
+    <link rel="stylesheet" href="./codemirror/lib/codemirror.css">
+    <script src="./codemirror/lib/codemirror.js"></script>
+    <script src="./codemirror/lib/codemirror.js"></script>
+    <script src="./codemirror/mode/clike/clike.js"></script>
+    <link rel="stylesheet" href="./codemirror/lib/codemirror.css"/>
+    <script src="./codemirror/mode/javascript/javascript.js"></script>              <!-- MODO   -->
+    <link href="./codemirror/theme/midnight.css" rel="stylesheet" />       <!-- TEMA   -->
+    <!-- CODEMIRROR ADDONS -->
+    <script src="./codemirror/addon/edit/closebrackets.js"></script>
+    <script src="./codemirror/addon/selection/active-line.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.7.0/viz.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Grafos - MC2</h1>
+    <div class="columnas">
+        <div id="editor" class="panel"></div>
+        <div id="graph" class="panel"></div>
+    </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
