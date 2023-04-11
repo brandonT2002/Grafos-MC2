@@ -1,0 +1,24 @@
+{
+  "name": "Grafos-MC2",
+  "version": "1.0.0",
+  "description": "Grafos - MC2\r Brandon Tejaxún 202112030",
+  "main": "prueba.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generador": "jison ./Parser.jison"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonT2002/Grafos-MC2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonT2002/Grafos-MC2/issues"
+  },
+  "homepage": "https://github.com/brandonT2002/Grafos-MC2#readme",
+  "dependencies": {
+    "jison": "^0.4.18"
+  }
+}
