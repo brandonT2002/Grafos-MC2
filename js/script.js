@@ -21,26 +21,32 @@ editor.on("change", function(cm) {
     catch(error) {}
 });
 function analizar(){
-    /*let vIni = document.getElementById('vIni').value
+    let vIni = document.getElementById('vIni').value
     let vFin = document.getElementById('vFin').value
     if (vIni.replace(' ','') == '' || vFin.replace(' ','') == ''){
         swal({
             title: "¡Oops!",
             text: "Todos los campos son obligatorios",
-            icon: "info",
-            buttons: false,
-            timer: 2000
+            icon: "info"
         })
     }
-    else {*/
-        let parser = Parser
-        analizarGrafo(parser.parse(editor.getValue()))
-    //}
+    else {
+        analizarGrafo(vIni,vFin,Parser.parse(editor.getValue()))
+    }
 }
-function analizarGrafo(grafo) {
-    Object.entries(grafo).forEach(([vertice,enlaces]) => {
-        console.log(`${vertice}: ${enlaces}`);
-    });
+function analizarGrafo(vIni,vFin,grafo) {
+    console.log('NUEVO PARSEO')
+    if(grafo[vIni] != null && grafo[vFin] != null) {
+        Object.entries(grafo).forEach(([vertice,enlaces]) => {
+            console.log(`${vertice}: ${enlaces}`);
+        });
+        return;
+    }
+    swal({
+        title: "¡Oops!",
+        text: "Verifique los vertices",
+        icon: "info"
+    })
 }
 function limpiarCampos(){
     document.getElementById('vIni').value = ''

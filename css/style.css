@@ -163,3 +163,10 @@ h1{
 .swal-icon--success__hide-corners {
     background-color: #011626;
 }
+.swal-button{
+    background-color: #010e18;
+    color: #fff;
+}
+.swal-button:not([disabled]):hover{
+    background-color: #010d16;
+}
