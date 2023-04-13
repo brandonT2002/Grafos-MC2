@@ -52,7 +52,7 @@ h1{
     height: 40rem;
 }
 .contenedor{
-    padding: 2rem;
+    padding: 5rem;
 }
 /* contenedor */
 .searchBooks{
@@ -60,19 +60,6 @@ h1{
     padding: 2rem;
     color: var(--white);
 }
-.containerSearch{
-    display: grid;
-    flex-direction: column;
-    flex-grow: 2;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
-}
-/* .search{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
-} */
 .button{
     background-color:#04AA6D;
     border-radius: .6rem;
@@ -86,12 +73,10 @@ h1{
     text-align: center;
     width: 100%;
 }
-@media (min-width: 768px) {
-    .containerSearch{
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-        column-gap: 1rem;
-    }
+.containerSearch{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 2rem;
 }
 .input-container {
     height: 5rem;
@@ -149,4 +134,32 @@ h1{
 }
 .input:focus ~ .placeholder {
     color: #dc2f55;
+}
+/* alertas */
+.swal-modal {
+    color: var(--white);
+    background-color: #011626;
+}
+.swal-title{
+    color: var(--white);
+}
+.swal-text{
+    color: var(--white);
+}
+.swal-button--cancel{
+    color: var(--white);
+    background-color: #2f3146;
+}
+.swal-button--cancel:not([disabled]):hover{
+    background-color: #1f202e;
+}
+.swal-overlay{
+    backdrop-filter: blur(1rem);
+    background: rgba(0, 0, 0, 0.75);
+}
+.swal-icon--success:after, .swal-icon--success:before {
+    background-color: #011626;
+}
+.swal-icon--success__hide-corners {
+    background-color: #011626;
 }

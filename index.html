@@ -28,25 +28,28 @@
         <div id="graph" class="panel"></div>
     </div>
 
-    <div class=" contenedor searchBooks">
-        <div class="containerSearch">
-            <div class="input-container">
-                <input id="vIni" class="input" type="text" placeholder=" " />
-                <div class="cut cut-short"></div>
-                <label for="vIni" class="placeholder">Vertice Inicial</label>
+    <div class="columnas">
+        <div class=" contenedor searchBooks">
+            <div class="containerSearch">
+                <div class="input-container">
+                    <input id="vIni" class="input" type="text" placeholder=" " />
+                    <div class="cut cut-short"></div>
+                    <label for="vIni" class="placeholder">Inicio</label>
+                </div>
+                <div class="input-container">
+                    <input id="vFin" class="input" type="text" placeholder=" " />
+                    <div class="cut cut-short"></div>
+                    <label for="vFin" class="placeholder">Fin</label>
+                </div>
+                <button type="button" class="button search" onclick="analizar()">Analizar</button>
             </div>
-            <div class="input-container">
-                <input id="vFin" class="input" type="text" placeholder=" " />
-                <div class="cut cut-short"></div>
-                <label for="vFin" class="placeholder">Vertice Final</label>
-            </div>
-            <button type="button" class="button search">Analizar</button>
-        </div>
-    </div>   
+        </div>   
+    </div>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
     <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

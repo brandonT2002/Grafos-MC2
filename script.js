@@ -5,20 +5,9 @@ var editor = CodeMirror(document.getElementById("editor"), {
     theme: "midnight"
 });
 
-// let graphContainer = d3.select("#graph");
-
 editor.on("change", function(cm) {
     let code = cm.getValue();
-    // try {
-    //     let graph = Viz(code);
-    //     let parser = new DOMParser();
-    //     let svg = parser.parseFromString(graph, "image/svg+xml").querySelector("svg");
-    //     graphContainer.selectAll("*").remove();
-    //     graphContainer.append(() => svg);
-    // } catch (e) {
-    //     // console.log(e);
-    //     graphContainer.selectAll("*").remove();
-    // }
+
     d3.select('#graph').graphviz().height(600*.5).width(document.getElementById('editor').clientWidth).renderDot(
         `digraph G{
             rankdir=LR
@@ -30,3 +19,21 @@ editor.on("change", function(cm) {
         }`
     )
 });
+
+function analizar(){
+    let vIni = document.getElementById('vIni').value
+    let vFin = document.getElementById('vFin').value
+    if (vIni.replace(' ','') == '' || vFin.replace(' ','') == ''){
+        swal({
+            title: "¡Oops!",
+            text: "Todos los campos son obligatorios",
+            icon: "info",
+            buttons: false,
+            timer: 2000
+        })
+    }
+    else {
+        document.getElementById('vIni').value = ''
+        document.getElementById('vFin').value = ''
+    }
+}
