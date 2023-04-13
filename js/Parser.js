@@ -84,7 +84,7 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
-return grafo;
+this.$ = grafo;grafo = {};return this.$;
 break;
 case 6:
 pushEnlace($$[$0-2],$$[$0]);this.$ = $$[$0]
@@ -593,20 +593,24 @@ case 0:
 break;
 case 1:
 break;
-case 2:return 10
+case 2:
 break;
-case 3:return 9
+case 3:
 break;
-case 4:return 8
+case 4:return 10
 break;
-case 5:errores.push(yy_.yytext)
+case 5:return 9
 break;
-case 6:return 5
+case 6:return 8
+break;
+case 7:errores.push(yy_.yytext)
+break;
+case 8:return 5
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:[ \n\t\r])/,/^(?:([a-zA-Z][a-zA-Z0-9]*))/,/^(?:->)/,/^(?:;)/,/^(?:.)/,/^(?:$)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6],"inclusive":true}}
+rules: [/^(?:\/\/.*)/,/^(?:[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/])/,/^(?:\s+)/,/^(?:[ \n\t\r])/,/^(?:([a-zA-Z][a-zA-Z0-9]*))/,/^(?:->)/,/^(?:;)/,/^(?:.)/,/^(?:$)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8],"inclusive":true}}
 });
 return lexer;
 })();

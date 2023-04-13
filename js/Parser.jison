@@ -28,7 +28,7 @@ nodo        [a-zA-Z][a-zA-Z0-9]* //a, ab, a0
 
 %%
 \/\/.*                                  {}//comentario simple
-\/\*[^*]*[*]+([^/*][^*]*[*]+)*\/        {}//comentario multilínea
+[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]     {}//comentario multilínea
 \s+                                     {}
 [ \n\t\r]                               {}
 {nodo}                                  {return 'nodo'}
@@ -45,7 +45,7 @@ nodo        [a-zA-Z][a-zA-Z0-9]* //a, ab, a0
 
 %%
 
-INICIO: GRAFO EOF {return grafo;};
+INICIO: GRAFO EOF {$$ = grafo;grafo = {};return $$;};
 
 GRAFO: 
     GRAFO ENLACES |
