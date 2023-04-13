@@ -4,8 +4,7 @@
   "description": "Grafos - MC2\r Brandon Tejaxún 202112030",
   "main": "prueba.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "generador": "jison ./Parser.jison"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

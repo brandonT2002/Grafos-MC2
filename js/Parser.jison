@@ -27,13 +27,15 @@
 nodo        [a-zA-Z][a-zA-Z0-9]* //a, ab, a0
 
 %%
-\s+                             {}
-[ \n\t\r]                       {}
-{nodo}                          {return 'nodo'}
-'->'                            {return 'enlace'}
-';'                             {return 'pyc'}
-.                               {errores.push(yytext)}
-<<EOF>>                         {return 'EOF'}
+\/\/.*                                  {}//comentario simple
+\/\*[^*]*[*]+([^/*][^*]*[*]+)*\/        {}//comentario multilínea
+\s+                                     {}
+[ \n\t\r]                               {}
+{nodo}                                  {return 'nodo'}
+'->'                                    {return 'enlace'}
+';'                                     {return 'pyc'}
+.                                       {errores.push(yytext)}
+<<EOF>>                                 {return 'EOF'}
 
 /lex
 

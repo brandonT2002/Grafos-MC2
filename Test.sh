@@ -1,2 +1,3 @@
-npm run generador
+cd ./js
+jison Parser.jison
 node Test.js
