@@ -19,7 +19,7 @@ editor.on("change", function(cm) {
     //     // console.log(e);
     //     graphContainer.selectAll("*").remove();
     // }
-    d3.select('#graph').graphviz().height(document.getElementById('editor').clientHeight).width(document.getElementById('editor').clientWidth).renderDot(
+    d3.select('#graph').graphviz().height(600*.5).width(document.getElementById('editor').clientWidth).renderDot(
         `digraph G{
             rankdir=LR
             engine="circo"
