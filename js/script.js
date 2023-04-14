@@ -57,7 +57,7 @@ function analizarGrafo(vIni,vFin,grafo) {
     })
 }
 function verCaminos(caminos) {
-    d3.select('#optimo').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
+    d3.select('#optimo').graphviz().scale(1).height(600*.7).width(800*.75).renderDot(
         `digraph G{
             rankdir=LR;
             labelloc=t;
@@ -70,7 +70,7 @@ function verCaminos(caminos) {
         }`
     )
     if(caminos.length > 1) {
-        d3.select('#camino1').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
+        d3.select('#camino1').graphviz().scale(1).height(600*.7).width(800*.75).renderDot(
             `digraph G{
                 rankdir=LR;
                 labelloc=t;
@@ -83,7 +83,7 @@ function verCaminos(caminos) {
             }`
         )
         if(caminos.length > 2) {
-            d3.select('#camino2').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
+            d3.select('#camino2').graphviz().scale(1).height(600*.7).width(800*.75).renderDot(
                 `digraph G{
                     rankdir=LR;
                     labelloc=t;
