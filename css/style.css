@@ -43,6 +43,11 @@ h1{
     grid-template-columns: repeat(2,1fr);
     column-gap: 2rem;
 }
+.caminos {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 2rem;
+}
 .panel{
     width: 100%;
     height: auto;

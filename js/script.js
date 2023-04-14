@@ -7,13 +7,12 @@ var editor = CodeMirror(document.getElementById("editor"), {
 editor.on("change", function(cm) {
     try {
         let code = cm.getValue();
-        d3.select('#graph').graphviz().scale(1.75).height(600*.5).width(document.getElementById('editor').clientWidth).renderDot(
+        d3.select('#graph').graphviz().scale(1.69).height(600*.45).width(document.getElementById('editor').clientWidth).renderDot(
             `digraph G{
-                rankdir=LR
-                engine="circo"
-                bgcolor="#01162600"
-                node[shape=circle color="white" fontcolor="white"]
-                edge[color="white" dir=none]
+                rankdir=LR;
+                bgcolor="#01162600";
+                node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
+                edge[color="white" dir=none];
                 ${code}
             }`
         )
@@ -38,15 +37,18 @@ function analizarGrafo(vIni,vFin,grafo) {
     console.log('NUEVO PARSEO')
     // console.log(grafo)
     if(grafo[vIni] != null && grafo[vFin] != null) {
-        // Object.entries(grafo).forEach(([vertice,enlaces]) => {
-        //     console.log(`${vertice}: ${enlaces}`);
-        // });
+        //Object.entries(grafo).forEach(([vertice,enlaces]) => {
+        //    console.log(`${vertice}: ${enlaces}`);
+        //});
 
         // llamar a la función buscar caminos
         caminos = buscarCaminos(grafo,vIni,vFin);
-        caminos.sort((a,b) => a.length - b.length)
-        console.log(caminos)
-        return;
+        if(caminos.length > 0) {
+            caminos.sort((a,b) => a.length - b.length)
+            verCaminos(caminos)
+            return
+        }
+        return
     }
     swal({
         title: "¡Oops!",
@@ -54,6 +56,69 @@ function analizarGrafo(vIni,vFin,grafo) {
         icon: "info"
     })
 }
+function verCaminos(caminos) {
+    d3.select('#optimo').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
+        `digraph G{
+            rankdir=LR;
+            bgcolor="#01162600";
+            node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
+            edge[color="white" dir=none];
+            ${editor.getValue()}
+            ${obtenerVisitadosGrafo(caminos,0)}
+        }`
+    )
+    if(caminos.length > 1) {
+        d3.select('#camino1').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
+            `digraph G{
+                rankdir=LR;
+                bgcolor="#01162600";
+                node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
+                edge[color="white" dir=none];
+                ${editor.getValue()}
+                ${obtenerVisitadosGrafo(caminos,1)}
+            }`
+        )
+        if(caminos.length > 2) {
+            d3.select('#camino2').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
+                `digraph G{
+                    rankdir=LR;
+                    bgcolor="#01162600";
+                    node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
+                    edge[color="white" dir=none];
+                    ${editor.getValue()}
+                    ${obtenerVisitadosGrafo(caminos,2)}
+                }`
+            )
+        }
+    }
+}
+function obtenerVisitadosGrafo(caminos,numero) {
+    visitados = ''
+    for(let i = 0; i < caminos[numero].length; i ++) {
+        if(i == 0) {
+            visitados += `${caminos[numero][i]}[label="${caminos[numero][i]}\\n(${i + 1})" fontsize="10" fillcolor="#F7C04A" peripheries=2];`
+        }
+        else if(i == caminos[numero].length - 1) {
+            visitados += `\n${caminos[numero][i]}[label="${caminos[numero][i]}\\n(${i + 1})" fontsize="10" fillcolor="#539165" peripheries=2];`
+        }
+        else {
+            visitados += `\n${caminos[numero][i]}[label="${caminos[numero][i]}\\n(${i + 1})" fontsize="10" peripheries=2];`
+        }
+    }
+    return visitados
+}
+/*
+a->b;
+//a->c;
+a->d;
+//a->e;
+
+b->c;
+d->e;
+
+b->e;
+d->c;
+*/
 function buscarCaminos(grafo,vIni,vFin,visitados = []){
     let caminos = [];
     visitados.push(vIni);
