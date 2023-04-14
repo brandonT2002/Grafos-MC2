@@ -60,6 +60,8 @@ function verCaminos(caminos) {
     d3.select('#optimo').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
         `digraph G{
             rankdir=LR;
+            labelloc=t;
+            label="Camino óptimo" fontcolor="white";
             bgcolor="#01162600";
             node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
             edge[color="white" dir=none];
@@ -71,6 +73,8 @@ function verCaminos(caminos) {
         d3.select('#camino1').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
             `digraph G{
                 rankdir=LR;
+                labelloc=t;
+                label="Camino 1" fontcolor="white";
                 bgcolor="#01162600";
                 node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
                 edge[color="white" dir=none];
@@ -82,6 +86,8 @@ function verCaminos(caminos) {
             d3.select('#camino2').graphviz().scale(1).height(600*.75).width(800*.75).renderDot(
                 `digraph G{
                     rankdir=LR;
+                    labelloc=t;
+                    label="Camino 2" fontcolor="white";
                     bgcolor="#01162600";
                     node[shape=circle color="white" fontcolor="white" style=filled fillcolor="#01162600"];
                     edge[color="white" dir=none];
@@ -90,6 +96,10 @@ function verCaminos(caminos) {
                 }`
             )
         }
+    }
+    else{
+        d3.select("#camino1").selectAll("*").remove();
+        d3.select("#camino2").selectAll("*").remove();
     }
 }
 function obtenerVisitadosGrafo(caminos,numero) {
