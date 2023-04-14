@@ -7,7 +7,7 @@ var editor = CodeMirror(document.getElementById("editor"), {
 editor.on("change", function(cm) {
     try {
         let code = cm.getValue();
-        d3.select('#graph').graphviz().height(600*.5).width(document.getElementById('editor').clientWidth).renderDot(
+        d3.select('#graph').graphviz().scale(1.75).height(600*.5).width(document.getElementById('editor').clientWidth).renderDot(
             `digraph G{
                 rankdir=LR
                 engine="circo"
