@@ -3,7 +3,7 @@ Brandon Tejaxún 202112030
 
 
 ### :pushpin: Objetivo principal
-Buscar caminos simples en grafos no dirigidos conexos
+Buscar caminos simples en grafos no dirigidos conexos <br>
 :dart: [Aplicación web](https://brandont2002.github.io/Grafos-MC2/)
 
 ### :one: Notación para ingresar el grafo
