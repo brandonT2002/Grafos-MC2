@@ -7,7 +7,7 @@ Buscar caminos simples en grafos no dirigidos conexos <br>
 :dart: [Aplicación web](https://brandont2002.github.io/Grafos-MC2/)
 
 ### :one: Notación para ingresar el grafo
-nodoOrigen -> nodoDestino;
+nodo1 -> nodo2;
 ```js
 a->b;
 a->c;
